@@ -16,6 +16,7 @@ require (
 	github.com/googleapis/gax-go v2.0.0+incompatible // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20180825215210-0210a2f0f73c // indirect
 	github.com/gotestyourself/gotestyourself v2.1.0+incompatible // indirect
+	github.com/joho/godotenv v1.3.0 // indirect
 	github.com/jtolds/gls v4.2.1+incompatible // indirect
 	github.com/kshvakov/clickhouse v1.3.4 // indirect
 	github.com/lib/pq v1.10.0 // indirect
