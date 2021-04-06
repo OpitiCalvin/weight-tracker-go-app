@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"log"
 	"os"
 	"weight-tracker/pkg/api"
 	"weight-tracker/pkg/app"
@@ -10,6 +11,7 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -24,9 +26,17 @@ func run() error {
 	// I', used to working with postgres but feel free to use any db you like. You just have to change the driver
 	// I'm not going to cover how to create a database here, but create a database
 	// and call it something along the lines of "weight tracker"
-	userName := "gisadmin"
-	password := "gis@admin1"
-	dbname := "weight_tracker"
+
+	// load env params
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	userName := os.Getenv("USERNAME")
+	password := os.Getenv("PASSWORD")
+	dbname := os.Getenv("DBNAME")
+
 	connectionString := fmt.Sprintf("postgres://%v:%v@localhost/%v?sslmode=disable", userName, password, dbname) //"postgres://gisadmin:gis@admin1@localhost/**DBNAME?sslmode=disable"
 
 	// setup database connection
